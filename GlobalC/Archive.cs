@@ -64,11 +64,11 @@ namespace GlobalC
             bw.Write(ending);
         }
 
-        public void Unpack()
+        public void Decompress()
         {
             if (Type == ArchiveType.JDLZ)
             {
-                data = Jdlz.Unpack(data);
+                data = Jdlz.Decompress(data);
                 Type = ArchiveType.RAWW;
                 preheader.UnpackedSize = data.Length;
                 preheader.FullSize = data.Length + preheader.FullSize - Size + 16;
